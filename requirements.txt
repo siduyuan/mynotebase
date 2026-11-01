@@ -10,3 +10,4 @@ itsdangerous==2.1.2
 slowapi==0.1.9
 colorama==0.4.6
 pydantic==2.12.5
+python-dotenv==1.0.1

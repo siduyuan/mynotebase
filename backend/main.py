@@ -93,6 +93,10 @@ from .export import (
 )
 from .mcp_http import build_mcp_router
 
+# Load environment variables from the repo-root .env (if present; missing is fine).
+from dotenv import load_dotenv
+load_dotenv(Path(__file__).parent.parent / ".env")
+
 # Load configuration
 config_path = Path(__file__).parent.parent / "config.yaml"
 with open(config_path, 'r', encoding='utf-8') as f:
