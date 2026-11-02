@@ -1,0 +1,13 @@
+[Unit]
+Description=Notebase data backup (daily, only on changes)
+After=network.target
+
+[Service]
+Type=oneshot
+User=sdy
+Group=sdy
+WorkingDirectory=/home/sdy/myAPP/notebase
+Environment="PATH=/home/sdy/myAPP/notebase/.venv/bin"
+ExecStart=/home/sdy/myAPP/notebase/.venv/bin/python /home/sdy/myAPP/notebase/scripts/backup.py
+StandardOutput=append:/home/sdy/myAPP/notebase/logs/backup.log
+StandardError=append:/home/sdy/myAPP/notebase/logs/backup.log

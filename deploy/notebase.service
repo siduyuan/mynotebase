@@ -1,0 +1,18 @@
+[Unit]
+Description=Notebase Web Service
+After=network.target
+
+[Service]
+Type=exec
+User=sdy
+Group=sdy
+WorkingDirectory=/home/sdy/myAPP/notebase
+Environment="PATH=/home/sdy/myAPP/notebase/.venv/bin"
+ExecStart=/home/sdy/myAPP/notebase/.venv/bin/python -m uvicorn backend.main:app --host 127.0.0.1 --port 60813 --timeout-graceful-shutdown 2
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/sdy/myAPP/notebase/logs/app.log
+StandardError=append:/home/sdy/myAPP/notebase/logs/app.log
+
+[Install]
+WantedBy=multi-user.target
